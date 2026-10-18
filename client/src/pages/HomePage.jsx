@@ -73,7 +73,7 @@ const HomePage = () => {
           </div>
 
           {/* All the Projects */}
-          {!loadProjects && projects.length > 0 && (
+          {!loadingProjects && projects.length > 0 && (
             <div className='mt-12 w-full'>
               <div className='flex items-center  justify-between pb-3 mb-3 border-b border-white/10'>
                 <p className='text-xs font-medium uppercase text-zinc-100 tracking-widest'>All Projects</p>
@@ -89,7 +89,7 @@ const HomePage = () => {
                     <div className='flex-1 min-w-0'>
                       <p className='text-sm font-medium text-white truncate'>{p.name}</p>
                       <div className='flex items-center gap-3 mt-0.5'>
-                        <span>
+                        <span className='text-xs text-zinc-300 flex items-center gap-1'>
                           <ClockIcon size={10}/>
                           {moment(p.updatedAt || p.createdAt).fromNow()}
                         </span>
