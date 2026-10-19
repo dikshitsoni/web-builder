@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 const JWT_SECRET = process.env.JWT_SECRET || "fallback_secret";
 
 //Helper to set cookies
-const setSessionCookies = (req, payload)=>{
+const setSessionCookies = (res, payload)=>{
     const token = jwt.sign(payload, JWT_SECRET, {expiresIn: '30d'});
     res.cookie('token', token, {
         httpOnly: true,
