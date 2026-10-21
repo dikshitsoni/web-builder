@@ -1,6 +1,6 @@
-import { Project } from "../models/Project";
+import { Project } from "../models/Project.js";
 import crypto from "crypto";
-import { generateProject } from "../services/ai";
+import { generateProject } from "../services/ai.js";
 import { log, timeStamp } from "console";
 
 function hashContent(content){
@@ -170,7 +170,7 @@ export async function getProject(req, res) {
         return;
     }
 
-    const project = await Project.findOne({_id: req.params._id, owner: req.user.userId})
+    const project = await Project.findOne({_id: req.params.id, owner: req.user.userId})
 
     if(!project){
         res.status(404).json({error: "Project not found"});
@@ -251,9 +251,7 @@ export async function updateProjectFiles(req, res) {
 
     const filesObj = {};
     for(const [path, entry] of Object.entries(project.files)){
-        if(typeof content === "string"){
-            filesObj[path] = entry.content;
-        }
+        filesObj[path] = entry.content;
     }
     res.json({
         _id: project._id,
