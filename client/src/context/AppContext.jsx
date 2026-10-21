@@ -117,7 +117,7 @@ export function AppContextProvider({children}){
                 })
             }
         } catch (err) {
-            console.error("Failed to load Project: ", err)
+            console.error("Failed to load Project: ", err);
             if(!silent){
                 toast.error("Failed to load Project details.")
                 navigate('/')
