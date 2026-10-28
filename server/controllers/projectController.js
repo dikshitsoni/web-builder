@@ -208,7 +208,7 @@ export async function deleteProject(req, res) {
         return;
     }
 
-    const result = await Project.findOneAndDelete({_id: req.params._id, owner: req.user.userId})
+    const result = await Project.findOneAndDelete({_id: req.params.id, owner: req.user.userId})
     if(!result){
         res.status(404).json({error: "Project not found"});
         return;
