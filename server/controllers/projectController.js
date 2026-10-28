@@ -75,7 +75,7 @@ async function runBackgroundGeneration(projectId, prompt) {
                     status: "generating",
                     filesPlanned: plan.files,
                     $push: {
-                        messeges: {
+                        messages: {
                             role: "assistant",
                             content: `Planned website structure:\n${fileList}`,
                             timeStamp: new Date(),
