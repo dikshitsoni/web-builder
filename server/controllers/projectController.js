@@ -240,7 +240,7 @@ export async function updateProjectFiles(req, res) {
 
     //Rebuild project files map with  content & hashes
     const newFiles = {};
-    for(const [path, content] of object) {
+    for(const [path, content] of Object.entries(project.files)) {
         if(typeof content === "string"){
             newFiles[path] = {content, hash: hashContent(content)}
         }
