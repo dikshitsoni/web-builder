@@ -13,6 +13,7 @@
   "type": "module",
   "dependencies": {
     "@ai-sdk/openai": "^4.0.96",
+    "@vercel/functions": "^3.10.4",
     "ai": "^7.0.143",
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
